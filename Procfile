@@ -1,0 +1,1 @@
+web: bundle exec ruby stathat_statusboard.rb -p $PORT
