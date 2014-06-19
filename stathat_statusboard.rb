@@ -157,7 +157,7 @@ get '/stathat_number' do
 
 	stat_value = 0
 	json_response[0]['points'].reverse.each do |point|
-		stat_value = point['value']
+		stat_value = point['value'].round(2)
 		if stat_value != 0
 			break
 		end
