@@ -158,23 +158,4 @@ get '/stathat_number' do
 	last_point = json_response[0]['points'].last
 	stat_value = last_point['value'].round(2)
 	"#{stat_value}"
-
-	# config = {api_key: api_key, api_secret: api_secret}
-	# client = Mixpanel::Client.new(config)
-
-	# t = Time.now.utc - 18000
-
-	# today_date_string = t.strftime("%Y-%m-%d")  
-
-	# data = client.request('events', {
-	#   event:     [ event ],
-	#   unit:     'day',
-	#   type:      'general',
-	#   interval:  1
-	# })
-
-	# date_string = data["data"]["series"][0]
-	# event_hash = data["data"]["values"][event]
-
-	# "#{event_hash[date_string]}"
 end
