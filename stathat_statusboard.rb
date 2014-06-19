@@ -150,12 +150,18 @@ get '/stathat_number' do
 
 	response = conn.get do |req|
 	  req.url "/x/#{api_key}/data/#{stat}"
-	  req.params['t'] = "1d1d"
+	  req.params['t'] = "1d1h"
 	end
 
 	json_response = JSON.parse(response.body)
 
-	last_point = json_response[0]['points'].last
-	stat_value = last_point['value'].round(2)
+	stat_value = 0
+	json_response[0]['points'].reverse.each do |point|
+		stat_value = point['value']
+		if stat_value != 0
+			break
+		end
+	end
+
 	"#{stat_value}"
 end
